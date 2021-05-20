@@ -1,38 +1,181 @@
 .App {
+  background: rgb(17, 17, 17);
+  height: 100vh;
+}
+.header {
+  background: rgb(17, 17, 17);
+  text-align: center;
+  color: white;
+  margin: 0 auto 0 auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgb(17, 17, 17);
+}
+
+.home-godcardart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.home-godcardart img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  height: 100%;
+}
+
+.single-god {
+  width: 180px;
+  height: 335px;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.single-god:hover .home-godcardart {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+#Mercury:hover .home-godcardart {
+  cursor: pointer;
+  transform: scale(1.5);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.god-name {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.god-name p {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+#Mercury .home-godcardart {
+  top: 15%;
+  transform: scale(1.4);
+  overflow: hidden;
+  z-index: 1;
+}
+#Mercury .god-name {
+  z-index: 2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#Mulan .home-godcardart img {
+  left: 40%;
+  transform: translateX(-40%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#Tiamat .home-godcardart img {
+  left: 60%;
+  transform: translateX(-60%);
+}
+
+.skins-header {
   display: flex;
-  flex-direction: column;
+  background: rgb(17, 17, 17);
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+
+.skins-header p {
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
+.skins-header p:hover {
+  cursor: pointer;
+  color: #ffce00;
+  transition: 0.3s;
+}
+
+.skins {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgb(17, 17, 17);
+}
+
+.single-skin {
+  width: 300px;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.skin-name {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.skin-name p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.links a {
+  margin: 5px;
+  background: black;
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  font-weight: 700;
+  transition: 0.5s;
+}
+
+.links a:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+  color: #ffce00;
+}
+
+.footer {
+  background: rgb(17, 17, 17);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
   color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer p {
+  margin-right: 5px;
 }
