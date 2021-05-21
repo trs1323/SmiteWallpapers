@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Smite Wallpapers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made to make it easier to find smite wallpapers. They are hosted on the orignal site but there was no way to browse skins. So this site grabs all the card art and sorts it so you can browse wallpapers. Built with React.
 
 ## Available Scripts
 
