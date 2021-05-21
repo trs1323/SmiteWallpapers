@@ -100,12 +100,16 @@
   align-items: center;
 }
 
-.skins-header p {
+.skins-header a {
+  color: white;
+}
+
+.go-back {
   margin-left: 10px;
   transition: 0.3s;
 }
 
-.skins-header p:hover {
+.go-back:hover {
   cursor: pointer;
   color: #ffce00;
   transition: 0.3s;
@@ -178,4 +182,10 @@
 
 .footer p {
   margin-right: 5px;
+}
+
+.loading {
+  color: white;
+  margin: 0;
+  text-align: center;
 }
