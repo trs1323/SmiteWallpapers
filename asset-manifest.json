@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/SmiteWallpapers/static/css/main.f668d1ee.chunk.css",
-    "main.js": "/SmiteWallpapers/static/js/main.668c5f2e.chunk.js",
-    "main.js.map": "/SmiteWallpapers/static/js/main.668c5f2e.chunk.js.map",
+    "main.js": "/SmiteWallpapers/static/js/main.21d27e49.chunk.js",
+    "main.js.map": "/SmiteWallpapers/static/js/main.21d27e49.chunk.js.map",
     "runtime-main.js": "/SmiteWallpapers/static/js/runtime-main.b4cd9df5.js",
     "runtime-main.js.map": "/SmiteWallpapers/static/js/runtime-main.b4cd9df5.js.map",
-    "static/js/2.a2a264a8.chunk.js": "/SmiteWallpapers/static/js/2.a2a264a8.chunk.js",
-    "static/js/2.a2a264a8.chunk.js.map": "/SmiteWallpapers/static/js/2.a2a264a8.chunk.js.map",
+    "static/js/2.3bdb5a36.chunk.js": "/SmiteWallpapers/static/js/2.3bdb5a36.chunk.js",
+    "static/js/2.3bdb5a36.chunk.js.map": "/SmiteWallpapers/static/js/2.3bdb5a36.chunk.js.map",
     "static/js/3.4d997b17.chunk.js": "/SmiteWallpapers/static/js/3.4d997b17.chunk.js",
     "static/js/3.4d997b17.chunk.js.map": "/SmiteWallpapers/static/js/3.4d997b17.chunk.js.map",
     "index.html": "/SmiteWallpapers/index.html",
     "static/css/main.f668d1ee.chunk.css.map": "/SmiteWallpapers/static/css/main.f668d1ee.chunk.css.map",
-    "static/js/2.a2a264a8.chunk.js.LICENSE.txt": "/SmiteWallpapers/static/js/2.a2a264a8.chunk.js.LICENSE.txt"
+    "static/js/2.3bdb5a36.chunk.js.LICENSE.txt": "/SmiteWallpapers/static/js/2.3bdb5a36.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b4cd9df5.js",
-    "static/js/2.a2a264a8.chunk.js",
+    "static/js/2.3bdb5a36.chunk.js",
     "static/css/main.f668d1ee.chunk.css",
-    "static/js/main.668c5f2e.chunk.js"
+    "static/js/main.21d27e49.chunk.js"
   ]
 }
