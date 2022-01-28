@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/SmiteWallpapers/static/css/main.7984c704.chunk.css",
-    "main.js": "/SmiteWallpapers/static/js/main.5fea1837.chunk.js",
-    "main.js.map": "/SmiteWallpapers/static/js/main.5fea1837.chunk.js.map",
-    "runtime-main.js": "/SmiteWallpapers/static/js/runtime-main.e431aa9c.js",
-    "runtime-main.js.map": "/SmiteWallpapers/static/js/runtime-main.e431aa9c.js.map",
-    "static/js/2.b81943f7.chunk.js": "/SmiteWallpapers/static/js/2.b81943f7.chunk.js",
-    "static/js/2.b81943f7.chunk.js.map": "/SmiteWallpapers/static/js/2.b81943f7.chunk.js.map",
-    "static/js/3.84abf7e3.chunk.js": "/SmiteWallpapers/static/js/3.84abf7e3.chunk.js",
-    "static/js/3.84abf7e3.chunk.js.map": "/SmiteWallpapers/static/js/3.84abf7e3.chunk.js.map",
+    "main.js": "/SmiteWallpapers/static/js/main.19140aae.chunk.js",
+    "main.js.map": "/SmiteWallpapers/static/js/main.19140aae.chunk.js.map",
+    "runtime-main.js": "/SmiteWallpapers/static/js/runtime-main.f111d7af.js",
+    "runtime-main.js.map": "/SmiteWallpapers/static/js/runtime-main.f111d7af.js.map",
+    "static/js/2.dbbbea1f.chunk.js": "/SmiteWallpapers/static/js/2.dbbbea1f.chunk.js",
+    "static/js/2.dbbbea1f.chunk.js.map": "/SmiteWallpapers/static/js/2.dbbbea1f.chunk.js.map",
+    "static/js/3.2c34601f.chunk.js": "/SmiteWallpapers/static/js/3.2c34601f.chunk.js",
+    "static/js/3.2c34601f.chunk.js.map": "/SmiteWallpapers/static/js/3.2c34601f.chunk.js.map",
     "index.html": "/SmiteWallpapers/index.html",
     "static/css/main.7984c704.chunk.css.map": "/SmiteWallpapers/static/css/main.7984c704.chunk.css.map",
-    "static/js/2.b81943f7.chunk.js.LICENSE.txt": "/SmiteWallpapers/static/js/2.b81943f7.chunk.js.LICENSE.txt"
+    "static/js/2.dbbbea1f.chunk.js.LICENSE.txt": "/SmiteWallpapers/static/js/2.dbbbea1f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e431aa9c.js",
-    "static/js/2.b81943f7.chunk.js",
+    "static/js/runtime-main.f111d7af.js",
+    "static/js/2.dbbbea1f.chunk.js",
     "static/css/main.7984c704.chunk.css",
-    "static/js/main.5fea1837.chunk.js"
+    "static/js/main.19140aae.chunk.js"
   ]
 }
