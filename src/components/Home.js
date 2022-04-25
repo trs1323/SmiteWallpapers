@@ -15,90 +15,84 @@ export default class Home extends Component {
             skinsloaded: false,
             showGodSkins: false,
             godName: "",
-            timeNow:  Date.now(),
-            timeInMonth:  Date.now() + 2629800000,
-            timeInTwoWeeks:  Date.now() + 1209600033
         }
     }
 
+//return new Promise ((resolve, reject) => {})
     componentDidMount() {
-        const updateTime = localStorage.getItem('updateTime');
-        if(this.state.timeNow >  updateTime){
-          
-        fetch("https://cms.smitegame.com/wp-json/smite-api/get-posts/1?tag=update-notes&per_page=10000")
+        this.promise()
+      }
+
+      getAllUpdates=()=>{
+       return new Promise ((resolve, reject) => {
+        fetch("https://cms.smitegame.com/wp-json/smite-api/get-posts/1?tag=update-notes&per_page=10000", {
+            method: "GET", 
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
           .then(res => res.json())
           .then(
             (res) => {
+
+                const filtered = res.filter((update) => update.real_categories.includes('PC'))
+                
               this.setState({
-                allUpdates: res
+                allUpdates: filtered
               });
-              localStorage.setItem('allUpdates', JSON.stringify(this.state.allUpdates));
-              localStorage.setItem('updateTime', this.state.timeInTwoWeeks);
-              this.sendSlug()
-            },
-            (error) => {
-              this.setState({
-                error
-              });
+
+              fetch("https://cms.smitegame.com/wp-json/smite-api/all-gods/1?",{
+                method: "GET", 
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+              .then(res => res.json())
+              .then(
+                  (res) => {
+                    this.setState({
+                      gods: res
+                    });
+                    resolve()
+                  }  
+              )
+              
             }
           )
-        } else{
-     
-            const allUpdates = JSON.parse(localStorage.getItem('allUpdates'));
-            this.setState({
-                allUpdates: allUpdates
-            })
-            if(this.state.allUpdates){
-                setTimeout(this.sendSlug(), 1000)
-            }else{
-                setTimeout(this.sendSlug, 4000)
-            }
-            
-        }
-
-        const godTime = localStorage.getItem('godTime');
-        if(this.state.timeNow >  godTime){
        
-        fetch("https://cms.smitegame.com/wp-json/smite-api/all-gods/1?")
-            .then(res => res.json())
-            .then(
-                (res) => {
-                  this.setState({
-                    gods: res
-                  });
-                  localStorage.setItem('gods', JSON.stringify(this.state.gods));
-                  localStorage.setItem('godTime', this.state.timeInMonth);
-                }
-                
-            )
-        }else{
-           
-            const gods = JSON.parse(localStorage.getItem('gods'));
-            this.setState({
-                gods: gods
-            })
-        }
+        })
       }
+
       
+      //gets the update url and recives the update info from the url given
     sendSlug = () =>{
-        
-        if(this.state.allUpdates ){
-        const skinTime = localStorage.getItem('skinTime');
-        if(this.state.timeNow >  skinTime){
-           
+        return new Promise ((resolve, reject) => {   
         for(let x = 0; x<this.state.allUpdates.length; x++){
+
         if(this.state.allUpdates[x].real_categories.includes('PC')){
+
             if(this.state.allUpdates[x].id === 15808){ continue }else{
-        fetch(`https://cms.smitegame.com/wp-json/smite-api/get-post/1?slug=${this.state.allUpdates[x].slug}`)
+        fetch(`https://cms.smitegame.com/wp-json/smite-api/get-post/1?slug=${this.state.allUpdates[x].slug}`,{
+            method: "GET",
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
           .then(res => res.json())
           .then(
             (res) => {
                 var splitt = res.content.split('\n');
+
+            //filters only the skins in the content
             var filtered = splitt.filter(word => word.startsWith('<li><a href=') || word.startsWith('<p class=\"name\">') || word.startsWith('<h3>')|| word.startsWith('<h5>Recolor ') || word.startsWith("<h5>Shadows Over Hercopolis</h5>") || word.startsWith("<h5>Legend of the Foxes</h5>"))
-            filtered = filtered.filter(word => word !== "<h5>Recolor &#8211; Shogun Hachiman</h5>" && word!== "<h5>Recolor &#8211; Red Rum Baron Samedi</h5>" && word !== "<h5>Recolor &#8211; Myrmidon Achilles</h5>")
-           
             
-            
+            //deletes the non skins links
+            filtered = filtered.filter(word => word !== "<h5>Recolor &#8211; Shogun Hachiman</h5>" && word!== "<h5>Recolor &#8211; Red Rum Baron Samedi</h5>" && word !== "<h5>Recolor &#8211; Myrmidon Achilles</h5>" && word !== '<li><a href="https://www.smitegame.com/news/8-6-bonus-update-notes-live-june-29/">More details here</a>!</li>' && word !== '<li><a href="https://www.smitegame.com/news/8-8-bonus-update-notes-live-september-7th/">More details here!</a></li>')
+   
+        
             var i,j,temparray,chunk = 5;
             for (i=0,j=filtered.length; i<j; i+=chunk) {
                 temparray = filtered.slice(i,i+chunk);
@@ -115,6 +109,9 @@ export default class Home extends Component {
                 //grabs urls
                 const URLsearchTerm = '=';
                 let URLsearchTerm1 = ".jpg";
+
+        
+       
 
                 let URLindexOfFirst = temparray[1].indexOf(URLsearchTerm);
                 let URLindexOfSecond = temparray[1].indexOf(URLsearchTerm1);
@@ -157,8 +154,12 @@ export default class Home extends Component {
                 this.setState({
                     allSkins: {...this.state.allSkins, [tempState]: temparray}
                   });
-                localStorage.setItem('allSkins', JSON.stringify({...this.state.allSkins, [tempState]: temparray}));
+                  if(Object.keys(this.state.allSkins).length >750){
+                          resolve();
+                  }
                 }
+
+
             },
            
             (error) => {
@@ -167,27 +168,8 @@ export default class Home extends Component {
           )
         }
     }
-    if(x === this.state.allUpdates.length-1){
-     
-        //localStorage.setItem('allSkins', JSON.stringify(this.state.allSkins));
-        localStorage.setItem('skinTime', this.state.timeInTwoWeeks);
-        setTimeout(this.setState({skinsloaded: true}), 3000)
-        
     }
-    }
-}else{
-  
-    const allSkins = JSON.parse(localStorage.getItem('allSkins'));
-    this.setState({
-        allSkins: allSkins,
-        allUpdatesLoaded: true,
-        skinsloaded: true
-    })
-    
-}
-}else{
-    setTimeout(this.sendSlug(), 10000)
-}
+        })
     }
 
     setGodName = (name) =>{
@@ -199,11 +181,41 @@ export default class Home extends Component {
 
     goBack = () =>{
         this.setState({
-            
             showGodSkins: false
         })
     }
+
+    filterSkinsToGods = () =>{
+        
+        Object.keys(this.state.gods).map((god, i) =>{
+            let arr = [];
+
+            Object.keys(this.state.allSkins).map((obj, i) => {
+                if(this.state.allSkins[obj][0].includes(god.god_name_EN)){
+                    //filteredData.push(this.props.allSkins[obj])
+                }
+            });
+
+        });
+
+       
+    }
+
+promise = () =>{
+    this.getAllUpdates()
+        .then(()=>{
+            this.sendSlug()
+            .then(() =>{
+                this.setState({
+                    skinsloaded: true
+                })
+            })
+        })
+}
+
+
     render() {
+
         return (
             <Router>
             <Switch>
