@@ -27,7 +27,7 @@ export default class Home extends Component {
        return new Promise ((resolve, reject) => {
         fetch("https://cms.smitegame.com/wp-json/smite-api/get-posts/1?tag=update-notes&per_page=10000", {
             method: "GET", 
-            mode: 'cors',
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -44,7 +44,7 @@ export default class Home extends Component {
 
               fetch("https://cms.smitegame.com/wp-json/smite-api/all-gods/1?",{
                 method: "GET", 
-                mode: 'cors',
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 }
@@ -76,7 +76,7 @@ export default class Home extends Component {
             if(this.state.allUpdates[x].id === 15808){ continue }else{
         fetch(`https://cms.smitegame.com/wp-json/smite-api/get-post/1?slug=${this.state.allUpdates[x].slug}`,{
             method: "GET",
-            mode: 'cors',
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
             }
