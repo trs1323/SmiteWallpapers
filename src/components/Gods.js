@@ -1,4 +1,4 @@
-const gods =[
+export const gods =[
     {
         "id": 3492,
         "name": "Achilles",

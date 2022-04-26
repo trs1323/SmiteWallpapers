@@ -1,4 +1,4 @@
-const arr = {
+export const arr = {
     "10": [
         "Goose Chase Jormungandr",
         "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/10028503/1bdbb454cc2b6194cfcd94cd1287595a13bef5bc.jpg",
