@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Skin from './Skin';
+import Gods from './Gods';
+import SkinArr from './SkinArr';
 import {
     BrowserRouter as Router,
     Switch,
@@ -25,7 +27,7 @@ export default class Home extends Component {
 
       getAllUpdates=()=>{
        return new Promise ((resolve, reject) => {
-        fetch("http://gobetween.oklabs.org/https://cms.smitegame.com/wp-json/smite-api/get-posts/1?tag=update-notes&per_page=10000")
+        fetch("https://cms.smitegame.com/wp-json/smite-api/get-posts/1?tag=update-notes&per_page=10000dasd")
           .then(res => res.json())
           .then(
             (res) => {
@@ -36,7 +38,7 @@ export default class Home extends Component {
                 allUpdates: filtered
               });
 
-              fetch("http://gobetween.oklabs.org/https://cms.smitegame.com/wp-json/smite-api/all-gods/1?")
+              fetch("https://cms.smitegame.com/wp-json/smite-api/all-gods/1?")
               .then(res => res.json())
               .then(
                   (res) => {
@@ -49,6 +51,13 @@ export default class Home extends Component {
               
             }
           )
+          .catch((err)=>{
+            this.setState({
+                gods: Gods,
+                allSkins: SkinArr,
+                skinsloaded: true
+              })
+          })
        
         })
       }
@@ -62,7 +71,7 @@ export default class Home extends Component {
         if(this.state.allUpdates[x].real_categories.includes('PC')){
 
             if(this.state.allUpdates[x].id === 15808){ continue }else{
-        fetch(`http://gobetween.oklabs.org/https://cms.smitegame.com/wp-json/smite-api/get-post/1?slug=${this.state.allUpdates[x].slug}`)
+        fetch(`https://cms.smitegame.com/wp-json/smite-api/get-post/1?slug=${this.state.allUpdates[x].slug}`)
           .then(res => res.json())
           .then(
             (res) => {
